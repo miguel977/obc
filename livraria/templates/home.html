@@ -7,11 +7,11 @@
     <form method="POST" action="{% url 'home' %}">
         {% csrf_token %}
         <div class="mb-3">
-            <label for="inputEmail" class="form-label">Usuário</label>
+            <label class="form-label">Usuário</label>
             <input type="text" name="usuario" class="form-control" required>
         </div>
         <div class="mb-3">
-            <label for="inputPassword" class="form-label">Senha</label>
+            <label class="form-label">Senha</label>
             <input type="password" name="senha" class="form-control" required>
         </div>
         <button class="btn btn-primary" type="submit">Login</button>
