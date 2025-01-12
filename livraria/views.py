@@ -3,10 +3,12 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import SignUpForm
+from .models import Book
 
 # Create your views here.
 
 def home(request):
+    books = Book.objects.all()
     if request.method == "POST":
         username = request.POST['usuario']
         password = request.POST['senha']
@@ -26,7 +28,7 @@ def home(request):
                 "Erro na autenticação. Tente novamente!")
             return redirect('home')
     else:
-        return render(request, 'home.html')
+        return render(request, 'home.html', {'books':books})
 
 def login_user(request):
     pass
