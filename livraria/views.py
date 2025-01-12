@@ -28,7 +28,7 @@ def home(request):
                 "Erro na autenticação. Tente novamente!")
             return redirect('home')
     else:
-        return render(request, 'home.html', {'books':books})
+        return render(request, 'home.html', {'books': books})
 
 def login_user(request):
     pass

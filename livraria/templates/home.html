@@ -3,11 +3,32 @@
     {% if user.is_authenticated %}
         <h2 class="text-center">Lista de livros</h2>
         <hr>
-        {% if books %}
-            {% for book in books %}
-                {{book}} </br>
-            {% endfor %}
-        {% endif%}
+        <table class="table table-striped table-border table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <td> id </td>
+                    <td> Title </td>
+                    <td> Genero </td>
+                    <td> ano </td>
+                    <td> valor </td>
+                </tr>
+            </thead>
+            <tbody>
+                {% if books %}
+                    {% for book in books %}
+                        <tr>
+                            <td> {{book.id}} </td>
+                            <td> {{book.title}} </td>
+                            <td> {{book.Genre}} </td>
+                            <td> {{book.year}} </td>
+                            <td> {{book.value}} </td>
+                    {% endfor %}
+                {% endif%}
+                        </tr>
+                    
+            </tbody>
+        </table>
+        
     {% else %}
     <form method="POST" action="{% url 'home.html' %}"></form>
         < class="col-md-6 offset-md-3">
