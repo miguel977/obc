@@ -66,3 +66,13 @@ def book_detail(request, id):
     else:
         messages.error(request, 'você precisa está logado') 
         return redirect('home')
+    
+def book_delete(request,id):
+    if request.user.is_authenticated:
+        book = Book.objects.get(id=id)
+        book.delete()
+        messages.success(request, 'Livro foi excluido com sucesso')
+        return redirect('home')
+    else:
+        messages.error(request, 'Você precisa está logado')
+        return redirect('home')

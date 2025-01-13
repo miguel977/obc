@@ -3,7 +3,7 @@
     <h2 class="text-center">Livro - {{book.title}}</h2
     <hr>
     <div class="col-md-6 offset-md-3">
-        ,<div class="card">
+        <div class="card">
             <div class="card-header text-center">
                 {{book.title}}
             </div>
@@ -11,10 +11,12 @@
                 <h5 class="card-title">{{book.genre}}, ano{{book.year}}</h5>
                 <p>{{book.description}}</p>
                 <hr>
-                <samp>R$ {{book.value}}</samp>
-            </div>
+        <span>R$ {{book.value}}</span>
         </div>
-        <br>
+        </div>
+    </div>
+    <br><br>
         <a href="{% url 'home' %}" class="btn btn-secondary">voltar</a>
+        <a href="{% url 'delete_book' book.id %}" class="btn btn-danger">excluir</a>
     </div>
 {% endblock %}
