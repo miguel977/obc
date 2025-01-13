@@ -2,6 +2,19 @@
 {% block content %}
     <h2 class="text-center">Livro - {{book.title}}</h2
     <hr>
-
-    <a href="{% url 'home' %}" class="btn btn-secondary">voltar</a>
+    <div class="col-md-6 offset-md-3">
+        ,<div class="card">
+            <div class="card-header text-center">
+                {{book.title}}
+            </div>
+            <div class="card-body text-center">
+                <h5 class="card-title">{{book.genre}}, ano{{book.year}}</h5>
+                <p>{{book.description}}</p>
+                <hr>
+                <samp>R$ {{book.value}}</samp>
+            </div>
+        </div>
+        <br>
+        <a href="{% url 'home' %}" class="btn btn-secondary">voltar</a>
+    </div>
 {% endblock %}
