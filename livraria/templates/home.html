@@ -17,7 +17,7 @@
                 {% if books %}
                     {% for book in books %}
                         <tr>
-                            <td> {{book.id}} </td>
+                            <td ><a href="{% url 'book' book.id %}"> {{book.id}}</a> </td>
                             <td> {{book.title}} </td>
                             <td> {{book.Genre}} </td>
                             <td> {{book.year}} </td>
@@ -25,12 +25,11 @@
                     {% endfor %}
                 {% endif%}
                         </tr>
-                    
             </tbody>
         </table>
         
     {% else %}
-    <form method="POST" action="{% url 'home.html' %}"></form>
+    {% comment %} <form method="POST" action="{% url 'home.html' %}"></form> {% endcomment %}
         < class="col-md-6 offset-md-3">
         <h2 class="text-center">Login</h2>
         <hr>
@@ -47,4 +46,4 @@
         <button class="btn btn-primary" type="submit">Login</button>
     </form>
     {% endif %}
-    {% endblock %}
+{% endblock %}

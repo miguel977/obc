@@ -28,7 +28,7 @@ def home(request):
                 "Erro na autenticação. Tente novamente!")
             return redirect('home')
     else:
-        return render(request, 'home.html', {'books': books})
+        return render(request, 'home.html', {'books':books})
 
 def login_user(request):
     pass
@@ -57,3 +57,12 @@ def register_user(request):
         form = SignUpForm()
         return render(request, 'register.html', {'form': form})
     return render(request, 'register.html', {'form': form})
+
+def book_detail(request, id):
+    if request.user.is_authenticated:
+        book = Book.objects.get(id=id)
+        return render(request, 'book.html', {'book': book})
+    
+    else:
+        messages.error(request, 'você precisa está logado') 
+        return redirect('home')
